@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JS One</title>
+</head>
+
+<body>
+
+
+    <label>请输入北京今天空气质量：
+        <input id="aqi-input" type="text">
+    </label>
+    <button id="button">确认填写</button>
+
+    <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+    <script type="text/javascript">
+        // task two:
+        // http://ife.baidu.com/task/detail?taskId=13
+        (function() {
+            /*
+            在注释下方写下代码
+            给按钮button绑定一个点击事件
+            在事件处理函数中
+            获取aqi-input输入的值，并显示在aqi-display中
+            */
+            var inputEle = document.getElementById('aqi-input'),
+                showEle = document.getElementById('aqi-display'),
+                buttonEle = document.getElementById('button');
+            buttonEle.onclick = function(){
+                showEle.innerHTML = inputEle.value;
+            }
+        })();
+    </script>
+</body>
+
+</html>

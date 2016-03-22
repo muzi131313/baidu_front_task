@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JS Two</title>
+</head>
+
+<body>
+    <h3>污染城市列表</h3>
+    <ul id="aqi-list">
+        <!--
+    <li>第一名：福州（样例），10</li>
+  	<li>第二名：福州（样例），10</li> -->
+    </ul>
+
+    <script type="text/javascript">
+        // task two:
+        // http://ife.baidu.com/task/detail?taskId=14
+        var aqiData = [
+            ["北京", 90],
+            ["上海", 50],
+            ["福州", 10],
+            ["广州", 50],
+            ["成都", 90],
+            ["西安", 100]
+        ];
+
+        (function() {
+            /*
+            在注释下方编写代码
+            遍历读取aqiData中各个城市的数据
+            将空气质量指数大于60的城市显示到aqi-list的列表中
+            */
+            var ulEle = document.getElementById('aqi-list'),
+                chinese = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
+                cacheData,
+                check = function(quality) {
+                    return (quality || 0) > 60;
+                },
+                getNumLen = function(_num) {
+                    if (isNaN(_num)) throw new Error('num must be a number');
+                    return (_num + '').length;
+                },
+                getFirstLetter = function(num, _defaultLetter) {
+                    spareNum = parseInt(num / 10);
+                    return (spareNum > 1 ? chinese[spareNum] : '') + '十' + chinese[num % 10];
+                },
+                trans = function(num) {
+                    var numLen = getNumLen(num),
+                        letter = '',
+                        spareNum = 0;
+                    switch (numLen) {
+                        case 1:
+                            letter = chinese[num];
+                            break;
+                        case 2:
+                            letter = getFirstLetter(num, '');
+                            break;
+                        case 3:
+                            letter = '一百' + getFirstLetter(num % 100, '零');
+                            break;
+                        default:
+                            throw new Error('out of my range');
+                    }
+                    return letter;
+                },
+                render = function(data) {
+                    if (data.length > 1) {
+                        var i = 0,
+                            singleData,
+                            liHtml = '',
+                            singleDataTwo;
+                        for (; singleData = data[i++];) {
+                            singleDataTwo = singleData[1];
+                            if (singleData.length != 2) throw new Error('the single data\'s length is wrong!');
+                            liHtml += '<li>第' + trans(i-1) + '名：' + singleData[0] + '，空气质量：' + singleDataTwo;
+                        }
+                        ulEle.innerHTML = liHtml;
+                    } else {
+                        ulEle.innerHTML = '';
+                    }
+                },
+                // this base on: http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html
+                quickSort = function(arr) {　　
+                    if (arr.length <= 1) {
+                        return arr;
+                    }　　
+                    var pivotIndex = Math.floor(arr.length / 2);
+                    // splice(): http://www.w3school.com.cn/jsref/jsref_splice.asp
+                    var pivot = arr.splice(pivotIndex, 1)[0];
+                    var left = [];　　
+                    var right = [];　　
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i][1] > pivot[1]) {　　　　　　
+                            left.push(arr[i]);　　　　
+                        } else {　　　　　　
+                            right.push(arr[i]);　　　　
+                        }　　
+                    }　　
+                    return quickSort(left).concat([pivot], quickSort(right));
+                },
+                // this base on: http://www.cnblogs.com/longze/archive/2012/11/27/2791230.html
+                normalSort = function(data){
+                    return data.sort(function(a, b){
+                        return b[1] - a[1]; // a-b正序，b-a倒序
+                    });
+                },
+                filterData = function(data){
+                    var i = 0,
+                        singleData,
+                        singleDataTwo,
+                        cache = [];
+                    for(; singleData = data[i++];){
+                        singleDataTwo = singleData[1];
+                        if(check(singleDataTwo)) cache.push(singleData);
+                    }
+                    return cache;
+                }
+            cacheData = filterData(aqiData);
+            cacheData = quickSort(cacheData); //normalSort(cacheData);
+            render(cacheData);
+        })();
+    </script>
+</body>
+
+</html>
