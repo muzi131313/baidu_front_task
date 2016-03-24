@@ -1,0 +1,250 @@
+/**
+  * the website of article on the below:
+  * http://compass-style.org/examples/compass/css3/flexbox/
+  * http://www.ruanyifeng.com/blog/2012/11/compass.html
+  * http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool
+  * task detail info:
+  * http://ife.baidu.com/task/detail?taskId=2
+  */
+/**
+  * box-shadow:
+  * @include single-box-shadow;
+  * @include box-shadow(gray 3px 3px 1px);
+  * @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
+  */
+@charset "utf-8";
+
+@import "core/utils";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+@import "compass/css3/user-interface";
+
+$font24: 24px;
+$font22: 22px;
+$font20: 20px;
+$font18: 18px;
+$font16: 16px;
+$font14: 14px;
+$font12: 12px;
+$gray: gray;
+$black: black;
+$gray-border: rgb(210, 216, 205);
+body {
+    font-size: $font16;
+    font-family: monospace;
+}
+
+#main {
+    @include display-flex;
+    @include flex-wrap(wrap);
+    header,
+    footer {
+        @include flex(1 0 100%);
+    }
+    header {
+        background: lighten(black, 22%);
+        @include display-flex;
+        height: 5em;
+        color: white;
+        font-size: $font12;
+        .logo {
+            @include flex(1 1 30%);
+            height: 5em;
+            margin-left: 2em;
+            img {
+                height: 100%;
+            }
+        }
+        ul {
+            @include flex(1 1 70%);
+            @include display-flex;
+            @include justify-content(flex-end);
+            list-style: inherit;
+            list-style-type: disc;
+            margin-right: 2.5em;
+            li {
+                margin-left: 2em;
+                height: 5em;
+                line-height: 5em;
+                &:nth-child(4) {
+                    color: grayscale($gray);
+                }
+            }
+        }
+    }
+    #content{
+        @include display-flex;
+    }
+    .content{
+        @include flex(1 1 calc(70% - 2em));
+    }
+    .content-right{
+        @include flex(1 1 30%);
+    }
+    .content, .content-right {
+        background: lighten(black, 80%);
+        padding: 0 1em 1em;
+        article,
+        form {
+            background: lighten(black, 100%);
+            padding: 1em 1.5em 2em 1.5em;
+            margin: 2em 0;
+            border-right: 3px gray solid;
+            border-bottom: 3px gray solid;
+            h2,
+            h3,
+            h4 {
+                font-weight: bold;
+                margin: 1em 0;
+            }
+            h2 {
+                font-size: $font22;
+            }
+            h3 {
+                font-size: $font16;
+                color: $gray;
+            }
+            h4 {
+                font-size: $font12;
+                color: $gray;
+            }
+            span {
+                font-weight: normal;
+            }
+            img {
+                height: 10em;
+                margin: 1em 0;
+            }
+            p {
+                line-height: 1.8em;
+                text-indent: 2em;
+            }
+            dl {
+                margin: 0 0 1.5em 2.5em;
+                border: 1px solid $gray-border;
+                width: 10em;
+                dt {
+                    text-align: center;
+                    margin: 0.5em 0;
+                    font-size: $font12;
+                }
+                dd {
+                    img {
+                        margin: 0.5em 10%;
+                        height: auto;
+                        width: 80%;
+                    }
+                }
+            }
+            ol {
+                margin: 1em 2em;
+                list-style: decimal;
+                list-style-position: inside;
+                li {
+                    margin-top: 0.5em;
+                }
+            }
+            table {
+                border: 1px solid $gray-border;
+                width: 100%;
+                height: 2em;
+                line-height: 2em;
+                font-size: $font12;
+                thead {
+                    th {
+                        border: 1px solid $gray-border;
+                        font-weight: bolder;
+                        color: white;
+                        background: lighten(black, 20%);
+                        padding: 0 0.5em;
+                    }
+                }
+                tbody {
+                    tr {
+                        td {
+                            border: 1px solid $gray-border;
+                            padding: 0 0.5em;
+                        }
+                        &:last-child {
+                            td {
+                                font-weight: bolder;
+                                background: lighten(black, 80%);
+                            }
+                        }
+                    }
+                }
+            }
+            aside{
+                font-size: $font20;
+                border-left: 0.2em lighten(black, 80%) solid;
+                height: 1.8em;
+                line-height: 1.8em;
+                padding-left: 0.4em;
+                h3{
+                    color: $black;
+                }
+            }
+            .form-item{
+                @include display-flex;
+                margin-top: 1em;
+
+                line-height: 1.2em;
+                label{
+                    @include flex(1 1 30%);
+                    text-align: right;
+                    font-size: $font12;
+                    padding-top: 0.5em;
+                    margin-right: 1em;
+                }
+                .form-input{
+                    @include flex(1 1 70%);
+                    input,label{
+                        vertical-align: middle;
+                    }
+                    input[type='text']{
+                        padding: 0.3em 0;
+                    }
+                    label{
+                        margin-left: -0.5em;
+                    }
+                    input[type='radio'],input[type="checkbox"]{
+                        padding-bottom: 0.3em;
+                    }
+                    textarea{
+                        @include input-placeholder {
+                            color: black;
+                            font-size: $font16;
+                        }
+                        font-size: $font16;
+                    }
+                }
+                p{
+                    text-indent: 0;
+                    font-size: $font12;
+                    color: lighten(black, 70%);
+                }
+            }
+            input[type='submit']{
+                @include border-radius(10px);
+                background: lighten(blue, 20%);
+                color: white;
+                width: 100%;
+                text-align: center;
+                vertical-align: middle;
+                font-size: $font20;
+                line-height: 2em;
+            }
+            textarea{
+                width: 100%;
+            }
+        }
+    }
+    footer{
+        text-align: center;
+        color: lighten(black, 90%);
+        font-size: $font12;
+        background: lighten(black, 20%);
+        padding: 3em 0 2em 0;
+    }
+}

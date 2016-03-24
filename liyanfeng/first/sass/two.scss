@@ -13,18 +13,13 @@
   * @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
   */
 @charset "utf-8";
+
+@import "core/utils";
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities";
 @import "compass/css3/user-interface";
 
-$font24: 24px;
-$font22: 22px;
-$font20: 20px;
-$font18: 18px;
-$font16: 16px;
-$font14: 14px;
-$font12: 12px;
 $gray: gray;
 $gray-border: rgb(210, 216, 205);
 body {

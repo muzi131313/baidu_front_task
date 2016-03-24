@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@import "core/utils";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+
+$color-gray: #ccc;
+$color-yellow: #fc0;
+
+.vertical-container {
+    height: 500px;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+
+    .content{
+        width: 400px;
+        height: 200px;
+        margin: 0 auto;
+        background-color: $color-gray;
+        position: relative;
+        .left-top{
+            @include WH(50px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include border-bottom-right-radius(50px);
+            background-color: $color-yellow;
+        }
+        .right-bottom{
+            @include WH(50px);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            @include border-top-left-radius(50px);
+            background-color: $color-yellow;
+        }
+    }
+}

@@ -9,17 +9,11 @@
   */
 @charset "utf-8";
 
+@import "core/utils";
 @import "compass";
 @import "compass/reset";
 @import "compass/css3";
 
-$font24: 24px;
-$font22: 22px;
-$font20: 20px;
-$font18: 18px;
-$font16: 16px;
-$font14: 14px;
-$font12: 12px;
 $gray: gray;
 $gray-border: #bac0b6;
 body {
