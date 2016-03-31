@@ -1,0 +1,463 @@
+@charset "utf-8";
+@import "core/utils";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/";
+@mixin base {
+    height: 1386px;
+    margin: 0 auto;
+}
+$border-bottom-color: #938e8c;
+$border-top-color: #cc8091;
+$font-color-logo: #fff;
+$font-color-date: #d4545c;
+$font-color-about: #000;
+$font-color-about-small: #676767;
+$font-color-700: #75b86b;
+$font-color-8091: #cc8091;
+$font-color-h1-blue: #d2994f;
+$font-color-h1-yellow: #cc7680;
+$font-color-pink: #cd4a48;
+$font-f-heiti: '黑体' !important;
+$font-f-yahei: 'Microsoft YaHei' !important;
+$font-f-kaiti: '楷体' !important;
+$font-f-songti: '宋体' !important;
+body {
+    background-color: lighten(gray, 30%);
+}
+#page {
+    width: 980px;
+    border-left: 1px solid grayscale(gray);
+    border-right: 1px solid grayscale(gray);
+    background: lighten(white, 95%);
+    @include base;
+    #page-content {
+        width: 892px;
+        @include base;
+        header {
+            height: 61px;
+            border-bottom: 2px solid $border-bottom-color;
+            background-image: url(../images/six/左上红色块@2x.png);
+            background-repeat: no-repeat;
+            font-size: $font12;
+            font-family: $font-f-heiti;
+            line-height: 98px;
+            .logo {
+                width: 110px;
+                height: 100%;
+                padding-left: 6px;
+                color: $font-color-logo;
+                display: block;
+                float: left;
+            }
+            .date {
+                height: 100%;
+                color: $font-color-date;
+                display: block;
+                float: right;
+                &:after {
+                    @include clearfix;
+                }
+            }
+        }
+        #content {
+            .about {
+                height: 301px;
+                margin-top: 20px;
+                .image {
+                    width: 641px;
+                    height: 100%;
+                    background-image: url(../images/six/左上大图@2x.png);
+                    background-repeat: no-repeat;
+                    float: left;
+                    span {
+                        display: block;
+                        height: 100%;
+                        width: 191px;
+                    }
+                    .layer-left {
+                        float: left;
+                        background-color: green;
+                        @include opacity(0.5);
+                    }
+                    .leyer-right {
+                        float: right;
+                        background-color: red;
+                        @include opacity(0.5);
+                    }
+                    .leyer-right::after {
+                        @include clearfix;
+                    }
+                }
+                .info {
+                    float: right;
+                    width: 203px;
+                    height: 100%;
+                    border-top: 2px solid $border-top-color;
+                    .about-info {
+                        font-size: $font12;
+                        font-family: $font-f-kaiti;
+                        color: $font-color-about-small;
+                        padding: 15px 0;
+                        &:first-letter {
+                            text-transform: uppercase;
+                        }
+                        span {
+                            display: inline-block;
+                            font-size: $font24;
+                            color: $font-color-about;
+                            border-bottom: 2px solid $font-color-about;
+                            text-transform: uppercase;
+                            margin-bottom: 5px;
+                            &:first-letter {
+                                font-size: $font32;
+                            }
+                        }
+                    }
+                    .big {
+                        font-size: $font116;
+                        color: $font-color-700;
+                        font-family: $font-f-yahei;
+                        font-style: italic;
+                        font-weight: bold;
+                    }
+                    .bottom {
+                        color: $font-color-8091;
+                        height: 55px;
+                        padding-top: 5px;
+                        .bottom-left {
+                            float: left;
+                            height: 55px;
+                            font-size: $font55;
+                        }
+                        .bottom-right {
+                            float: left;
+                            padding: 15px 0 0 10px;
+                            height: 40px;
+                            display: inline-flex;
+                            flex-direction: column;
+                            strong span {
+                                width: 100%;
+                                display: block;
+                            }
+                            strong {
+                                font-size: $font21;
+                            }
+                            &:after {
+                                @include clearfix;
+                            }
+                            span {
+                                color: black;
+                                font-size: $font12;
+                                line-height: 12px;
+                            }
+                        }
+                        strong {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .info::after {
+                    @include clearfix;
+                }
+            }
+            .what {
+                width: 641px;
+                height: 301px;
+                .left,
+                .content,
+                .right {
+                    float: left;
+                    width: 33.3%;
+                    height: 100%;
+                    h1 {
+                        font-size: $font16;
+                        text-decoration: underline;
+                        margin: 20px 0 10px;
+                        height: 16px;
+                        line-height: 16px;
+                        font-weight: bold;
+                    }
+                    p,
+                    .bottom {
+                        font-size: $font12;
+                        @include opacity(0.7);
+                        line-height: 16px;
+                        padding-right: 12px;
+                    }
+                }
+                .left {
+                    h1 {
+                        color: lighten(green, 12%);
+                    }
+                }
+                .content {
+                    width: 33.4%;
+                    h1 {
+                        color: $font-color-h1-yellow;
+                    }
+                }
+                .right {
+                    h1 {
+                        color: $font-color-h1-yellow;
+                    }
+                    p {
+                        margin-bottom: 6px;
+                    }
+                    .bottom {
+                        margin-top: 18px;
+                        display: block;
+                        .pink {
+                            font-style: italic;
+                            font-size: $font12;
+                            @include opacity(0.7);
+                            font-family: $font-f-yahei;
+                            line-height: 16px;
+                            color: $font-color-pink;
+                        }
+                    }
+                }
+            }
+            .zone {
+                height: 651px;
+                .left {
+                    width: 415px;
+                    height: 100%;
+                    float: left;
+                    padding-right: 19px;
+                    .title {
+                        font-size: $font42;
+                        color: #11456b;
+                        height: 147px;
+                        font-family: $font-f-heiti;
+                        font-weight: bold;
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid black;
+                        p {
+                            font-size: $font33;
+                            height: 42px;
+                            &:first-child {
+                                height: 72px;
+                                line-height: 72px;
+                                span {
+                                    display: block;
+                                    padding-left: 162px;
+                                }
+                            }
+                        }
+                        .first {
+                            font-size: $font72;
+                            font-style: italic;
+                            color: #f5e327;
+                            float: left;
+                            margin-top: -12px;
+                        }
+                        .t-right {
+                            float: right;
+                            &:after {
+                                @include clearfix;
+                            }
+                        }
+                        .last {
+                            font-size: $font33;
+                        }
+                    }
+                    .article {
+                        padding-top: 20px;
+                        font-size: $font12;
+                        color: #767777;
+                        font-family: $font-f-songti;
+                        line-height: 16px;
+                        text-indent: 24px;
+                        p {
+                            &:first-child {
+                                span {
+                                    text-indent: 0;
+                                    display: block;
+                                }
+                            }
+                        }
+                        strong {
+                            font-size: $font70;
+                            font-family: $font-f-yahei;
+                            color: #f5e327;
+                            float: left;
+                            display: block;
+                            height: 70px;
+                            width: 70px;
+                            line-height: 70px;
+                            text-indent: 0;
+                            margin-right: 5px;
+                        }
+                        img {
+                            float: right;
+                            padding: 15px 2px 15px 15px;
+                        }
+                    }
+                }
+                .z-right {
+                    width: 458px;
+                    height: 100%;
+                    float: right;
+                    &:after {
+                        @include clearfix;
+                    }
+                    .r-top {
+                        width: 458px;
+                        height: 275px;
+                        background-image: url(../images/six/配图二@3x.png);
+                        background-repeat: no-repeat;
+                        position: relative;
+                        .z-r-bottom {
+                            width: 458px;
+                            height: 61px;
+                            position: absolute;
+                            bottom: 0;
+                            p {
+                                height: 44px;
+                                line-height: 44px;
+                                margin: 8.5px 20px;
+                                border-left: 3px solid #72b16a;
+                                font-size: 12px;
+                                color: #72b16a;
+                                font-style: italic;
+                                strong {
+                                    font-style: normal;
+                                    font-size: 26px;
+                                    color: white;
+                                    padding: 0 8px;
+                                    letter-spacing: 140%;
+                                }
+                            }
+                        }
+                    }
+                    .r-bottom {
+                        width: 459px;
+                        height: 318px;
+                        margin-top: 14px;
+                        background: lighten(yellow, 40%);
+                        color: #5a5b5b;
+                        ul {
+                            font-size: $font16;
+                            font-family: $font-f-songti;
+                            padding: 24px 12px;
+                            li {
+                                padding: 20px 20px 0;
+                                letter-spacing: calc(1px);
+                                .triangle_border_up {
+                                    width: 0;
+                                    height: 5px;
+                                    border-width: 0 5px 10px;
+                                    border-style: solid;
+                                    border-color: transparent transparent #333;
+                                    /*透明 透明  灰*/
+                                    position: relative;
+                                    display: block;
+                                    float: left;
+                                    margin-right: 8px;
+                                }
+                                .litter {
+                                    font-size: $font12;
+                                    text-align: right;
+                                    font-style: italic;
+                                    height: 18px;
+                                    line-height: 18px;
+                                    float: right;
+                                }
+                            }
+                        }
+                        .r-b-two{
+                            .r-b-t-l{
+                                width: 260px;
+                                height: 123px;
+                                background: url(../images/six/右下红色块@2x.png);
+                                padding-top: 37px;
+                                .r-b-t-l-content{
+                                    height: 86px;
+                                    line-height: 86px;
+                                    color: #fff;
+                                    font-family: $font-f-yahei;
+                                    .r-b-t-l-content-l{
+                                        padding-left: 5px;
+                                        font-size: 110px;
+                                        width: 55px;
+                                    }
+                                    .r-b-t-l-content-r{
+                                        width: 183px;
+                                        height: 100%;
+                                        float: right;
+                                        border-left: 2px solid white;
+                                        padding-left: 12px;
+                                        .c-big{
+                                            height: 21px;
+                                            line-height: 21px;
+                                            font-size: 21px;
+                                            font-family: $font-f-heiti;
+                                            font-style: italic;
+                                            &:nth-child(2){
+                                                margin-bottom: 12px;
+                                            }
+                                        }
+                                        .c-small{
+                                            height: 12px;
+                                            line-height: 12px;
+                                            font-size: 12px;
+                                            font-family: $font-f-heiti;
+                                            margin-bottom: 6px;
+                                        }
+                                    }
+                                }
+                            }
+                            .r-b-t-r{
+                                width: 179px;
+                                height: 140px;
+                                float: right;
+                                padding: 10px;
+                                font-size: $font16;
+                                font-style: italic;
+                                color: #5a5b5b;
+                                word-wrap: break-word;
+                                word-break: normal;
+                                strong{
+                                    color: #d45d5c;
+                                    font-size: 72px;
+                                    width: 36px;
+                                    height: 36px;
+                                    line-height: 72px;
+                                    font-family: $font-f-heiti;
+                                    display: block;
+                                    &.first{
+                                        float: left;
+                                        margin-bottom: -18px;
+                                    }
+                                    &.last{
+                                        float: right;
+                                        margin-top: -22px;
+                                    }
+                                }
+                                span{
+                                    display: block;
+                                    text-indent: 52px;
+                                    line-height: 16px;
+                                    text-rendering: geometricPrecision;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            height: 50px;
+            border-top: 1px solid gray;
+            span{
+                float: right;
+                color: #d45d5c;
+                font-size: $font12;
+                font-family: $font-f-heiti;
+                margin: 2px 0px;
+                display: block;
+            }
+        }
+    }
+}
