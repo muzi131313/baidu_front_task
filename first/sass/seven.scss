@@ -1,0 +1,31 @@
+@charset "utf-8";
+@import "compass/reset";
+@import "compass/css3";
+
+$red: #e74f4d;
+$gray: #93959c;
+$black: #393a3a;
+$white: #ffffff;
+
+header{
+	$flex-legacy-enabled: true;
+	.header-wrap{
+		height: 57px;
+		line-height: 57px;
+		font-size: 24px;
+		padding: 0 54px;
+		@include display-flex;
+		@include flex-wrap(wrap);
+		@include flex-direction(column);
+		
+		.logo{
+			width: 111px;
+		}
+
+		.menu{
+			font-size: 16px;
+			@include flex(1 0 111px);
+		}
+	}
+	$flex-legacy-enabled: false;
+}

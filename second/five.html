@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>five</title>
+    <style type="text/css">
+        .bg-red{
+            background-color: red;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+        .bg-green{
+            background-color: green;
+        }
+        .bg-yellow{
+            background-color: yellow;
+        }
+        .bg-purple{
+            background-color: purple;
+        }
+        .bg-brown{
+            background-color: brown;
+        }
+        .bg-tan{
+            background-color: tan;
+        }
+        .bg-antiquewhite{
+            background-color: antiquewhite;
+        }
+
+        .aqi-chart-wrap{
+            padding: 10px;
+        }
+        /**height: 300px;*/
+        .aqi-chart{
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #d5d5d5;
+        }
+        .chart-title{
+            height: 100px;
+            width: 100%;
+            vertical-align: middle;
+        }
+        .chart-title:before{
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em; /* Adjusts for spacing */
+        }
+        .title-wrap{
+            width: 90%;
+            padding: 0 5%;
+            height: 50%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .title-wrap ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .title-wrap ul li{
+            float: left;
+            height: 100%;
+            display: flex;
+            margin-right: 10px;
+        }
+        .title-wrap ul li .title-block{
+            height: 50%;
+            background-color: red;
+
+        }
+        .chart-content{
+            height: 300px;
+            width: 100%;
+        }
+        .chart-item{
+            width: 10%;
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        .chart-item-data{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset id="form-gra-time">
+        <legend>请选择日期粒度：</legend>
+        <label>日
+            <input name="gra-time" value="day" type="radio" checked="checked">
+        </label>
+        <label>周
+            <input name="gra-time" value="week" type="radio">
+        </label>
+        <label>月
+            <input name="gra-time" value="month" type="radio">
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>请选择查看的城市：</legend>
+        <select id="city-select">
+            <option>北京</option>
+        </select>
+    </fieldset>
+    <div class="aqi-chart-wrap">
+        <div class="aqi-chart">
+            <!--
+            <div class="chart-title">
+                <div class="title-wrap">
+                    <ul id="titles">
+                        <li>
+                            <div class="title-block">11</div>
+                            <div class="title-text">南京</div>
+                        </li>
+                        <li>
+                            <div class="title-block">22</div>
+                            <div class="title-text">北京</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            -->
+            <div class="chart-content">
+                <div class="chart-item">
+                    <div class="chart-item-data bg-red" title="2016-6-7 23" style="height: 30%;">
+                        
+                    </div>
+                </div>
+                <div class="chart-item">
+                    <div class="chart-item-data bg-green">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/core/utils.js"></script>
+    <script type="text/javascript" src="js/five.js"></script>
+</body>
+
+</html>
