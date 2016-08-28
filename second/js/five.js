@@ -8,6 +8,10 @@
       }
     };
     */
+/**
+ * this task from:
+ * http://ife.baidu.com/task/detail?taskId=17
+ */
 
 var citySelectDom = Dom.id('city-select'),
     dateSelectDom = Dom.id('form-gra-time'),
